@@ -1,0 +1,1 @@
+export const NPIURL = 'https://npiregistry.cms.hhs.gov/api/?version=2.0&number='
