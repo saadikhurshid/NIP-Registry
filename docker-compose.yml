@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nipregistery:
+    build: AssignmentWith-Docker/
+    command: sh ./docker-entrypoint.sh
+    restart: always
+    ports:
+    - "3000:3000"
+    depends_on:
+    - redis
+    - dynamo
+    environment:
+      DYNAMO_ENDPOINT: http://localhost:8000
+      AWS_ACCESS_KEY_ID: "accessKeyId"
+      AWS_SECRET_ACCESS_KEY: "xyz"
+
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+    - ALLOW_EMPTY_PASSWORD=yes
+
+  dynamo:
+    image: "cnadiminti/dynamodb-local"
+    ports:
+      - "8000:8000"
+   
