@@ -1,0 +1,20 @@
+There are two projects in this repo one is with docker configuration and other one is without docker
+If you want to start to docker project then first make pull from the repo and target the directory folder.
+After that just run this command "docker-compose up -d -V --build --remove-orphans" make sure you have docker deomon installed 
+in your machine.
+
+In this project dynamodb and redis are runnning inside docker yous just need to run the docker docker with above command after
+which you can access the node services at your localhost:3000/
+
+API's for this service are 
+-localhost:3000/resgister  //for registering providers POST type.
+-localhost:3000/providers  // for listing providers from dynamodb GET type
+-localhost:3000/kue-app    // for redis dashboard
+
+Note as i have not mounted the volumne inside the container make sure to down the docker before starting it again and agian.
+
+
+The project which is without docker for that you have to local run the redis server on your mackine to make kue work.
+Once the redis server is up and running and then you just need to start the server by command yarn start.
+Rest of the api's are same as above.
+Test coverage Report is in the propject coverage folder which is running without the docker
